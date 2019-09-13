@@ -4,7 +4,7 @@
 	<title>PHP</title>
 </head>
 <body>
-	<?php echo '<p>Hola mundo</p>'; ?>
+	<?php echo '<p>Hola mundo, esto es una prueba</p>'; ?>
 
 </body>
 </html>
