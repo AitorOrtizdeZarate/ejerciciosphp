@@ -1,6 +1,13 @@
 <!doctype html>
 <html>
 	<head>
+    <style>
+        .agenda{
+            border: solid;
+            width: 20%;
+            text-align: center;
+        }
+    </style>
 		<title>
 			DWES02 - Agenda
 		</title>
@@ -50,21 +57,29 @@
 			<!-- Campo oculto para ir almacenando los elementos de la agenda-->
 			<input name="agenda" type="hidden" value="<?php echo  arraytostring ($array_agenda) ?>"/><br>
 			Nombre:<br>
-			<input type="text" name="nombre"><br><br>
+			<input type="text" name="nombre" value="<?php echo $_POST[nombre] ?>"><br><br>
 			Email:<br>
-			<input type="text" name="email"><br><br>
+			<input type="text" name="email" value="<?php echo $_POST[email] ?>"><br><br>
 			<button type="submit" name="submit" >Añadir contacto</button>
 		</form>
 
 		<h2>AGENDA</h2>
 		<table>
-		  <tr>
-		    <th>Nombre</th>
-		    <th>Email</th>
-		  </tr>
+		  
+          
 		  	<?php
+                $nombre = $_POST['nombre'];
+                $email = $_POST['email'];
+                $contacto = [$nombre => [$email]]; 
 		  		// recorremos el array y mostramos los contactos
-			?>
+                foreach($contacto as $nombre => [$email]){
+                 echo "<div class='agenda'";
+                 echo "<p><b>".$nombre."</b></p>";
+                 echo "<p>".$email."</p>";
+                 echo "</div>";
+                }
+                ?>
+                
 		</table>
 
 	</body>
