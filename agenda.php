@@ -1,4 +1,8 @@
+<?php 
+session_start();
+?>
 <!doctype html>
+
 <html>
 	<head>
     <style>
@@ -67,17 +71,40 @@
 		<table>
 		  
           
-		  	<?php
-                $nombre = $_POST['nombre'];
-                $email = $_POST['email'];
-                $contacto = [$nombre => [$email]]; 
-		  		// recorremos el array y mostramos los contactos
-                foreach($contacto as $nombre => [$email]){
-                 echo "<div class='agenda'";
-                 echo "<p><b>".$nombre."</b></p>";
-                 echo "<p>".$email."</p>";
-                 echo "</div>";
-                }
+			  <?php
+			  	//Llamamos a la funcion personas
+				personas($_POST['nombre'], $_POST['email']);
+				
+				
+				function personas ($nombre, $email){
+					//Si el nombre y el email no estan vacios, añadiran un contacto a la agenda
+					if(!empty($nombre) and !empty($email)){
+						$_SESSION['agenda'][$nombre] = $email;
+					//Aqui mostramos las personas que tenemos en la agenda
+					foreach ($_SESSION['agenda'] as $nombre => $email){
+							echo "<div class='agenda'>";
+							echo $nombre."<br>";
+							echo $email;
+							echo "</div>";
+						}
+					}
+					//Si el nombre esta escrito pero el email esta vacio, borrara la persona cuyo nombre este escrita
+					if(isset($nombre) and empty($email)){
+						unset($_SESSION['agenda'][$nombre]);
+						foreach ($_SESSION['agenda'] as $nombre => $email){
+							echo "<div class='agenda'>";
+							echo $nombre."<br>";
+							echo $email;
+							echo "</div>";
+						}
+					}
+				}
+
+				
+				
+				
+
+
                 ?>
                 
 		</table>
