@@ -6,25 +6,11 @@
 <body>
 
     <?php
-        $randomarray = [];
-        for ($i = 0; $i < 20; $i++){
-            array_push($randomarray, rand(0,500));
-            echo $randomarray[$i].' | ';
+        $string = "OrtizdeZarate Gomez Intxausti Belintxon";
+        $array = explode(' ', $string);
+        for ($i = 0; $i < count($array); $i++){
+            echo "La longitud del string ".$array[$i]. " es: ".strlen($array[$i]).'<br>';
         }
-
-        sort($randomarray);
-echo '<br>';
-        for ($i = 0; $i < sizeof($randomarray); $i++){
-             if($i == 0){
-            echo "<p style='color:blue;'> Este es el numero random mas pequeño: ".$randomarray[$i]."</p>";
-            }
-            else if($i == sizeof($randomarray)-1){
-                echo "<p style='color:green'>Este es el numero random mas alto: ".$randomarray[$i]."</p>";
-            }
-        }
-
-        echo "<p>Suma de todos los elementos del array: ".array_sum($randomarray)."</p>";
-        echo "<p>Media de todos los elementos del array: ".array_sum($randomarray)/sizeof($randomarray)."</p>";
        
 
         
