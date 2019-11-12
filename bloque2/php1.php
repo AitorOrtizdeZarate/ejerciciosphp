@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>2 array</title>
+<title>Bloque 2 ejercicio 1</title>
 </head>
 <body>
 
 <?php
+
     $array1 = [];
     $array2 = [];
     $num;
@@ -15,7 +16,7 @@
         $array1[$i] = $i;
     }
     foreach ($array1 as $final1){
-        echo "$final1 ";
+        echo "$final1 |";
         
     }
     echo "<br>";
@@ -33,7 +34,7 @@
     
     
     foreach ($array2 as $final2){
-        echo "$final2 ";
+        echo "$final2 |";
         
     }
 	?>
