@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bloque 2 ejercicio 8</title>
+	<title>Bloque 2 ejercicio 9</title>
 </head>
 <body>
 	<?php
